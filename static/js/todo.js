@@ -11,8 +11,8 @@ var todoTemplate = function(todo) {
                 <div class="pure-u-1-3 fl">${ w.created_time }</div>
                 <div class="complete todo-content pure-u-1-3">${ w.task }</div>
                 <div class="pure-u-1-3 fr">
-                    <button class="todo-delete pure-button pa" data-id="${ w.id }">Delete</button>
-                    <button class="todo-edit pure-button pa" data-id="${ w.id }">Edit</button>
+                    <button class="todo-delete de pure-button pa" data-id="${ w.id }">Delete</button>
+                    <button class="todo-edit ed pure-button pa" data-id="${ w.id }">Edit</button>
                     <button class="todo-complete pure-button pa" data-id="${ w.id }">Complete</button>
                 </div>
             </div>
@@ -121,19 +121,23 @@ var bindEventTodoComplete = function() {
         var todoId = $(this).data('id')
         var todoCell = button.closest('.todo-cell')
         var Mask = todoCell.find('.complete')
-        var Edit = todoCell.find('.todo-delete')
-        var Delete = todoCell.find('.todo-edit')
+        var Edit = todoCell.find('.ed')
+        var Delete = todoCell.find('.de')
         if(Mask.hasClass('line')){
             Mask.removeClass('line')
             Edit.removeClass('pure-button-disabled')
             Delete.removeClass('pure-button-disabled')
+            Edit.addClass('todo-edit')
+            Delete.addClass('todo-delete')
             button.text( 'Complete' )
         }
         else{
             Mask.addClass('line')
             Edit.addClass('pure-button-disabled')
             Delete.addClass('pure-button-disabled')
-            button.text( 'Refresh' )
+            Edit.removeClass('todo-edit')
+            Delete.removeClass('todo-delete')
+            button.text( 'Refresh ' )
         }
 
         var response = function(r) {

@@ -1,5 +1,3 @@
-# 夜弄影-1012783799
-
 from flask import Flask
 from todo import main as todo_routes
 from api import main as api_routes
@@ -14,8 +12,6 @@ app.register_blueprint(todo_routes)
 app.register_blueprint(api_routes, url_prefix='/api')
 
 
-# 运行代码
-# 默认端口是 5000
 if __name__ == '__main__':
     config = dict(
         debug=True,

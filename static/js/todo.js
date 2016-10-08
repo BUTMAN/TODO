@@ -13,7 +13,7 @@ var todoTemplate = function(todo) {
                 <div class="pure-u-1-3 fr">
                     <button class="todo-delete pure-button pa" data-id="${ w.id }">Delete</button>
                     <button class="todo-edit pure-button pa" data-id="${ w.id }">Edit</button>
-                    <!--<button class="todo-complete pure-button pa" data-id="${ w.id }">Complete</button>-->
+                    <button class="todo-complete pure-button pa" data-id="${ w.id }">Complete</button>
                 </div>
             </div>
             <div class="xqgl hide pure-form">
@@ -139,7 +139,7 @@ var bindEventTodoComplete = function() {
         var response = function(r) {
             if(r.success) {
                 console.log('成功123', arguments)
-                alert("11成功")
+//                alert("11成功")
             } else {
                 console.log('错误', arguments)
                 alert("22失败")
@@ -152,8 +152,6 @@ var bindEventTodoComplete = function() {
 
 
 var bindEvents = function() {
-    // 不同的事件用不同的函数去绑定处理
-    // 这样逻辑就非常清晰了
     bindEventTodoAdd()
     bindEventTodoDelete()
     bindEventTodoEdit()
@@ -161,9 +159,6 @@ var bindEvents = function() {
     bindEventTodoComplete()
 }
 
-// 页面载入完成后会调用这个函数，所以可以当做入口
 $(document).ready(function(){
-    // 用 bindEvents 函数给不同的功能绑定事件处理
-    // 这样逻辑就非常清晰了
     bindEvents()
 })

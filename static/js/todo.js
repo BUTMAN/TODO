@@ -8,7 +8,7 @@ var todoTemplate = function(todo) {
         <div class="todo-cell">
             <div>
                 <!--<div>Todo-id: ${ w.id }</div>-->
-                <div class="pure-u-1-3">${ w.created_time }</div>
+                <div class="pure-u-1-3 fl">${ w.created_time }</div>
                 <div class="complete todo-content pure-u-1-3">${ w.task }</div>
                 <div class="pure-u-1-3 fr">
                     <button class="todo-delete pure-button pa" data-id="${ w.id }">Delete</button>

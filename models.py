@@ -19,7 +19,7 @@ class Todo(db.Model):
     com = db.Column(db.String())
 
     def __repr__(self):
-        return u'<ToDo {} {}>'.format(self.id, self.task)
+        return u'<ToDo {} {} {}>'.format(self.id, self.task, self.com)
 
     def save(self):
         db.session.add(self)
@@ -33,18 +33,16 @@ class Todo(db.Model):
         format = '%m/%d %H:%M:%S'
         v = int(time.time()) + 3600 * 8
         valuegmt = time.gmtime(v)
-        print('time', valuegmt, '111', v, '222')
         dt = time.strftime(format, valuegmt)
         self.task = form.get('task', '')
+        self.com = form.get('com', '')
         self.created_time = dt
-        self.com = 0
 
     def complete(self):
-        print('com', self.com)
-        if self.com == 1:
-            self.com = 0
-        else:
-            self.com = 1
+        if self.com == '1':
+            self.com = '0'
+        elif self.com == '0':
+            self.com = '1'
         pass
 
     def valid(self):

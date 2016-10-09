@@ -10,6 +10,7 @@ main = Blueprint('todo', __name__)
 @main.route('/')
 def index():
     todo_list = Todo.query.all()
+    print('todo_list', todo_list)
     return render_template('todo_index.html', todos=todo_list)
 
 #

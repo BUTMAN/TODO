@@ -29,8 +29,10 @@ var todoTemplate = function(todo) {
 var bindEventTodoAdd = function() {
     $('#id-button-todo-add').on('click', function(){
       var todo = $('#id-input-todo').val()
+      var com = $('#id-input-todo-com').val()
       var form = {
         task: todo,
+        com: com,
       }
       console.log('todo-form', todo, '11', form, '22')
 

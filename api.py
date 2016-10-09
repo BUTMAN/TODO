@@ -12,14 +12,14 @@ main = Blueprint('api', __name__)
 @main.route('/todo/add', methods=['POST'])
 def add():
     form = request.form
-    print('form', form)
+    print('ff', form)
     t = Todo(form)
+    # t.com = '0'
+    print('form', t)
     r = {
         'data': []
     }
-    print('1333', t)
     if t.valid():
-        print('123')
         t.save()
         r['success'] = True
         r['data'] = t.json()
